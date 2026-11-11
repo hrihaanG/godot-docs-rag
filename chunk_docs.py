@@ -1,6 +1,6 @@
 from load_docs import load_docs
 
-MAX_CHARS = 1000
+MAX_CHARS = 500
 
 def split_long(paragraph, max_chars):
     pieces, current = [], ""
