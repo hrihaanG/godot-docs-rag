@@ -37,21 +37,15 @@
   {
     "id": 5,
     "question": "What does the green icon next to a function in the script editor mean?",
-    "expected_sources": [
-        "getting_started/first_2d_game/03.coding_the_player.rst",
-        "tutorials/editor/script_editor.rst"
-    ],
+    "expected_sources": ["getting_started/first_2d_game/03.coding_the_player.rst"],
     "keywords": ["signal"],
     "kind": "normal"
   },
   {
     "id": 6,
     "question": "What stretch mode and aspect should I set so my 2D game scales on different screen sizes?",
-    "expected_sources": [
-        "getting_started/first_2d_game/01.project_setup.rst",
-        "tutorials/rendering/multiple_resolutions.rst"
-    ],
-    "keywords": ["keep"],
+    "expected_sources": ["getting_started/first_2d_game/01.project_setup.rst"],
+    "keywords": ["canvas_items"],
     "kind": "normal"
   },
   {
