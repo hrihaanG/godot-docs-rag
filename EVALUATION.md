@@ -38,6 +38,7 @@ Evaluated 14 Nov 2026. This document reports what the Godot Docs Assistant gets 
 | What is godot-cpp? | The model described the API and never gave the definition. | Retrieval. The definition chunk ranked 14th, outside the top 5. |
 | What stretch mode and aspect should I set for a 2D game? | The model answered stretch mode `canvas_items` and aspect `expand`. The 2D tutorial uses `keep`. | Ambiguous question. Retrieval returned another page on the same topic, which gives different advice. |
 | How do I make a character jump in 2D? | The answer gave the jump condition and the velocity line but left out `move_and_slide()`, which applies the velocity, and it mixed in 3D context. | Incomplete answer. The same question passed in the earlier run, and a single run cannot show whether the difference comes from the model or from randomness. |
+| How do I add an animation in GDScript? (asked while testing the Docker container; not one of the 18 test questions) | The model said it could not find the answer. | Retrieval. The top 5 chunks were two from AnimationTree, a scripting intro, a page on scene instances and 3D movement code. Pages on sprite animation and the animation introduction ranked 6th and 7th, just outside the top 5. The question is also vague about which kind of animation. |
 
 ## Other issues found
 
