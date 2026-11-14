@@ -50,7 +50,7 @@
   {
     "id": 5,
     "question": "What does the green icon next to a function in the script editor mean?",
-    "rank": null,
+    "rank": 1,
     "top5": [
       "tutorials/editor/script_editor.rst",
       "tutorials/scripting/debug/debugger_panel.rst",
@@ -62,7 +62,7 @@
   {
     "id": 6,
     "question": "What stretch mode and aspect should I set so my 2D game scales on different screen sizes?",
-    "rank": null,
+    "rank": 1,
     "top5": [
       "tutorials/rendering/multiple_resolutions.rst",
       "tutorials/rendering/multiple_resolutions.rst",
