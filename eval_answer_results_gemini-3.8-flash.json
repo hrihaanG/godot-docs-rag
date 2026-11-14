@@ -1,0 +1,302 @@
+[
+  {
+    "id": 1,
+    "kind": "normal",
+    "question": "How do I connect a signal in GDScript?",
+    "answer": "Based on the provided excerpts, you can connect a signal in GDScript in code or through the editor:\n\n* **In GDScript code:** Call `.connect()` on the signal and pass the target method, using the syntax:\n  ```gdscript\n  $Child.signal_name.connect(method_on_the_object)\n  ```\n  [4]\n\n* **Through the editor:** In the **Signals** tab, open the \"Connect a Signal\" window and connect the signal to your target function either by clicking the \"Pick\" button and selecting the method, or by typing the function name below \"Receiver Method\" [1]. Once connected, a green connection icon will appear next to the function in the script [1, 2]. (Note that the presence of the green icon does not guarantee the function exists, so the function name's spelling must match exactly [2]).",
+    "sources": [
+      "getting_started/first_2d_game/06.heads_up_display.rst",
+      "getting_started/first_2d_game/03.coding_the_player.rst",
+      "getting_started/step_by_step/signals.rst",
+      "tutorials/best_practices/scene_organization.rst",
+      "tutorials/scripting/cross_language_scripting.rst"
+    ],
+    "passed": true,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 2,
+    "kind": "normal",
+    "question": "What is the difference between _process and _physics_process?",
+    "answer": "Based on the provided excerpts, the differences between `_process()` (idle processing) and `_physics_process()` (physics processing) are:\n\n* **Execution Rate and Synchronization:**\n  * `_process()` runs every frame, as often as possible [5]. Its rate is not synchronized with physics and depends on hardware and game optimization [4].\n  * `_physics_process()` runs at a fixed rate (by default, 60 times per second) at fixed time intervals as much as possible, independent of the game's actual framerate [1, 5]. This interval can be adjusted in the Project Settings [1].\n\n* **Execution Timing:**\n  * `_physics_process()` runs before each physics step [1].\n  * `_process()` runs after the physics step in single-threaded games [4].\n\n* **Intended Use:**\n  * `_physics_process()` is intended for calculations that must happen before each physics step and anything involving the physics engine\u2014such as moving a body or character that collides with the game world/environment\u2014to keep physics interactions running stably and smoothly [1, 5].\n  * `_process()` is used to update nodes every frame [5].",
+    "sources": [
+      "tutorials/scripting/idle_and_physics_processing.rst",
+      "getting_started/first_3d_game/03.player_movement_code.rst",
+      "tutorials/best_practices/godot_notifications.rst",
+      "tutorials/scripting/idle_and_physics_processing.rst",
+      "tutorials/scripting/idle_and_physics_processing.rst"
+    ],
+    "passed": true,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 3,
+    "kind": "normal",
+    "question": "How do I make a character jump in 2D?",
+    "answer": "To make a character jump in 2D using a `CharacterBody2D`, you can check if the player has pressed the jump action while the character is on the floor, set the vertical velocity to your jump speed, and call `move_and_slide()` [4]:\n\n```gdscript\n# Handle Jump.\nif Input.is_action_just_pressed(\"jump\") and is_on_floor():\n    velocity.y = jump_speed\n\nmove_and_slide()\n```\n*(In 2D, the Y axis is positive downwards [1], so jump speed uses a negative value, such as `-400.0f` [4]).*",
+    "sources": [
+      "getting_started/first_3d_game/06.jump_and_squash.rst",
+      "tutorials/3d/using_transforms.rst",
+      "getting_started/first_3d_game/03.player_movement_code.rst",
+      "tutorials/physics/using_character_body_2d.rst",
+      "tutorials/physics/kinematic_character_2d.rst"
+    ],
+    "passed": true,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 4,
+    "kind": "normal",
+    "question": "How do I connect to a signal defined in GDScript from C#?",
+    "answer": "To connect to a GDScript signal from C#, you must use the `Connect` method, as no C# static types exist for signals defined in GDScript [1]. \n\nYou can connect signals using `Callable.From`:\n\n```csharp\nmyGDScriptNode.Connect(\"my_signal\", Callable.From(MySignalHandler));\n\nmyGDScriptNode.Connect(\"my_signal_with_params\", Callable.From<string, int>(MySignalWithParamsHandler));\n```\n[1]",
+    "sources": [
+      "tutorials/scripting/cross_language_scripting.rst",
+      "tutorials/scripting/cross_language_scripting.rst",
+      "tutorials/scripting/cross_language_scripting.rst",
+      "tutorials/scripting/c_sharp/c_sharp_differences.rst",
+      "getting_started/step_by_step/signals.rst"
+    ],
+    "passed": true,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 5,
+    "kind": "normal",
+    "question": "What does the green icon next to a function in the script editor mean?",
+    "answer": "I could not find the answer in the docs. \n\nThe excerpts mention icons to the left of function definitions (an override icon and a signal receiver icon) [1], as well as a green triangle arrow in the script editor's gutter that indicates the line of code a debugger broke on [2], but they do not specify the color of the icons next to functions.",
+    "sources": [
+      "tutorials/editor/script_editor.rst",
+      "tutorials/scripting/debug/debugger_panel.rst",
+      "tutorials/shaders/shader_reference/canvas_item_shader.rst",
+      "tutorials/editor/script_editor.rst",
+      "tutorials/editor/script_editor.rst"
+    ],
+    "passed": false,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 6,
+    "kind": "normal",
+    "question": "What stretch mode and aspect should I set so my 2D game scales on different screen sizes?",
+    "answer": "Based on the provided documentation, you should use the following settings:\n\n- **Stretch mode:** Set to `canvas_items` [1]. This ensures 2D elements scale relative to the base window size [2].\n- **Stretch aspect:** Set to `expand` [1]. This allows the game to support multiple aspect ratios and make better use of tall smartphone displays [1].",
+    "sources": [
+      "tutorials/rendering/multiple_resolutions.rst",
+      "tutorials/rendering/multiple_resolutions.rst",
+      "tutorials/rendering/multiple_resolutions.rst",
+      "tutorials/rendering/multiple_resolutions.rst",
+      "tutorials/rendering/multiple_resolutions.rst"
+    ],
+    "passed": false,
+    "retrieved": true,
+    "keywords": false,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 7,
+    "kind": "out_of_scope",
+    "question": "What is the capital of France?",
+    "answer": "I could not find the answer to that in the docs.",
+    "sources": [
+      "tutorials/i18n/locales.rst",
+      "tutorials/i18n/locales.rst",
+      "tutorials/i18n/locales.rst",
+      "tutorials/i18n/locales.rst",
+      "tutorials/i18n/locales.rst"
+    ],
+    "passed": true
+  },
+  {
+    "id": 8,
+    "kind": "normal",
+    "question": "How does Godot store the default pose of a skeleton's bones?",
+    "answer": "According to the documentation, the Skeleton stores the Transform values necessary for the default pose as **Bone Rest** [1]. If the Bone Pose is equal to Bone Rest, the Skeleton is in its default pose [1].",
+    "sources": [
+      "tutorials/assets_pipeline/retargeting_3d_skeletons.rst",
+      "tutorials/assets_pipeline/retargeting_3d_skeletons.rst",
+      "tutorials/animation/2d_skeletons.rst",
+      "tutorials/assets_pipeline/retargeting_3d_skeletons.rst",
+      "tutorials/assets_pipeline/retargeting_3d_skeletons.rst"
+    ],
+    "passed": true,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 9,
+    "kind": "normal",
+    "question": "Which gettext file formats can Godot load for translations?",
+    "answer": "Based on the documentation, Godot supports loading GNU gettext translation files in the following formats:\n\n* Text-based `.po` files [1, 2]\n* Compiled `.mo` files [2]",
+    "sources": [
+      "tutorials/assets_pipeline/importing_translations.rst",
+      "tutorials/i18n/localization_using_gettext.rst",
+      "tutorials/i18n/localization_using_gettext.rst",
+      "tutorials/i18n/localization_using_gettext.rst",
+      "tutorials/io/runtime_file_loading_and_saving.rst"
+    ],
+    "passed": true,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 10,
+    "kind": "normal",
+    "question": "If my game crashes while it is embedded in the editor, will the editor crash too?",
+    "answer": "No, the editor will not crash. The game always runs in a separate process regardless of the embedding mode, meaning that a game crash will not crash the editor [1].",
+    "sources": [
+      "tutorials/editor/game_embedding.rst",
+      "tutorials/editor/command_line_tutorial.rst",
+      "tutorials/editor/project_manager.rst",
+      "tutorials/plugins/running_code_in_the_editor.rst",
+      "tutorials/scripting/c_sharp/c_sharp_basics.rst"
+    ],
+    "passed": true,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 11,
+    "kind": "normal",
+    "question": "Which audio effects are described as the essential ones for beginners?",
+    "answer": "According to the documentation, if you are new to audio, the essential effects are:\n\n- Equalizer & Filter\n- Limiter\n- Delay & Reverb [2]",
+    "sources": [
+      "tutorials/audio/audio_effects.rst",
+      "tutorials/audio/audio_effects.rst",
+      "tutorials/audio/audio_effects.rst",
+      "tutorials/audio/recording_with_microphone.rst",
+      "tutorials/audio/audio_buses.rst"
+    ],
+    "passed": true,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 12,
+    "kind": "normal",
+    "question": "Where can I look up known issues with the physics engine?",
+    "answer": "For known issues related to the physics engine, you can look at the open physics-related issues on GitHub (and looking through closed physics-related issues can also help answer questions about physics engine behavior) [2].",
+    "sources": [
+      "tutorials/physics/troubleshooting_physics_issues.rst",
+      "tutorials/physics/troubleshooting_physics_issues.rst",
+      "tutorials/ui/creating_applications.rst",
+      "tutorials/physics/interpolation/using_physics_interpolation.rst",
+      "tutorials/migrating/upgrading_to_godot_4.6.rst"
+    ],
+    "passed": true,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 13,
+    "kind": "normal",
+    "question": "What happens to a navigation region that has no compatible navigation layer for a path query?",
+    "answer": "If a region does not have a single compatible navigation layer with the ``navigation_layers`` parameter of a path query, that region's navigation mesh will be skipped in pathfinding [1].",
+    "sources": [
+      "tutorials/navigation/navigation_using_navigationlayers.rst",
+      "tutorials/navigation/navigation_different_actor_area_access.rst",
+      "tutorials/navigation/navigation_using_navigationpathqueryobjects.rst",
+      "tutorials/navigation/navigation_using_navigationlayers.rst",
+      "tutorials/navigation/navigation_introduction_3d.rst"
+    ],
+    "passed": true,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 14,
+    "kind": "normal",
+    "question": "Does a navigation mesh take an agent's radius into account when pathfinding?",
+    "answer": null,
+    "sources": [],
+    "passed": false
+  },
+  {
+    "id": 15,
+    "kind": "normal",
+    "question": "What kind of gameplay is the AStar3D class best suited for?",
+    "answer": "The `AStar3D` class is best suited for cell-based 3D gameplay where actors do not need to reach any possible position within an area, but only predefined, distinct positions [1].",
+    "sources": [
+      "tutorials/navigation/navigation_introduction_3d.rst",
+      "getting_started/first_3d_game/index.rst",
+      "tutorials/navigation/navigation_introduction_2d.rst",
+      "getting_started/first_2d_game/index.rst",
+      "tutorials/navigation/navigation_introduction_3d.rst"
+    ],
+    "passed": true,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 16,
+    "kind": "normal",
+    "question": "What is godot-cpp?",
+    "answer": "I could not find it in the docs. The provided excerpts describe aspects of its API, pointer behavior, and project templates, but do not contain a definition of what godot-cpp is.",
+    "sources": [
+      "tutorials/scripting/cpp/gdextension_cpp_example.rst",
+      "tutorials/scripting/cpp/core_types.rst",
+      "tutorials/scripting/cpp/core_types.rst",
+      "tutorials/scripting/cpp/core_types.rst",
+      "tutorials/scripting/cpp/about_godot_cpp.rst"
+    ],
+    "passed": false,
+    "retrieved": true,
+    "keywords": false,
+    "cites_expected": false,
+    "valid_numbers": true
+  },
+  {
+    "id": 17,
+    "kind": "normal",
+    "question": "What makes each particle in a 2D particle system look different from the others?",
+    "answer": "What makes each particle different from the rest and provides a more organic look is the \"randomness\" associated with each parameter [2].",
+    "sources": [
+      "tutorials/2d/particle_systems_2d.rst",
+      "tutorials/2d/particle_systems_2d.rst",
+      "tutorials/2d/particle_systems_2d.rst",
+      "tutorials/3d/particles/index.rst",
+      "tutorials/3d/particles/index.rst"
+    ],
+    "passed": true,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 18,
+    "kind": "out_of_scope",
+    "question": "Who won the Game of the Year award in 2020?",
+    "answer": null,
+    "sources": [],
+    "passed": false
+  }
+]

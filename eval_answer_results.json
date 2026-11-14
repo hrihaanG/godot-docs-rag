@@ -1,0 +1,318 @@
+[
+  {
+    "id": 1,
+    "kind": "normal",
+    "question": "How do I connect a signal in GDScript?",
+    "answer": "Based on the provided documentation, you can connect to a signal in GDScript using the `connect` method [4]:\n\n```gdscript\n$Child.signal_name.connect(method_on_the_object)\n```\n\nAdditionally, signals can be connected via the editor's Signals tab by selecting the target node and function in the \"Connect a Signal\" window [1].",
+    "sources": [
+      "getting_started/first_2d_game/06.heads_up_display.rst",
+      "getting_started/first_2d_game/03.coding_the_player.rst",
+      "getting_started/step_by_step/signals.rst",
+      "tutorials/best_practices/scene_organization.rst",
+      "tutorials/scripting/cross_language_scripting.rst"
+    ],
+    "passed": true,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 2,
+    "kind": "normal",
+    "question": "What is the difference between _process and _physics_process?",
+    "answer": "Based on the provided excerpts, the differences between `_process()` and `_physics_process()` are:\n\n* **Idle processing (`_process`)** runs code every frame as often as possible, and its rate depends on hardware and game optimization [4, 5]. It is not synchronized with physics and runs after the physics step in single-threaded games [4].\n* **Physics processing (`_physics_process`)** happens at fixed time intervals (at a fixed rate of 60 times per second by default), which is independent of the game's actual framerate to keep physics interactions and physics running smoothly [1, 5]. It should be used for calculations that must happen before each physics step, such as moving a character or body that collides with the game world or environment [1, 5].",
+    "sources": [
+      "tutorials/scripting/idle_and_physics_processing.rst",
+      "getting_started/first_3d_game/03.player_movement_code.rst",
+      "tutorials/best_practices/godot_notifications.rst",
+      "tutorials/scripting/idle_and_physics_processing.rst",
+      "tutorials/scripting/idle_and_physics_processing.rst"
+    ],
+    "passed": true,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 3,
+    "kind": "normal",
+    "question": "How do I make a character jump in 2D?",
+    "answer": "Based on the provided excerpts, to make a character jump when the player presses \"jump\" and the character is on the floor, you instantly give them a lot of vertical speed [1]. \n\nIn GDScript, this is implemented as:\n```gdscript\nif Input.is_action_just_pressed(\"jump\") and is_on_floor():\n    velocity.y = jump_speed\n```\n*(Note: For 3D, the vertical velocity is set directly when the jump action is pressed [2], and for 2D, it includes the `is_on_floor()` check [4]).*",
+    "sources": [
+      "getting_started/first_3d_game/06.jump_and_squash.rst",
+      "tutorials/3d/using_transforms.rst",
+      "getting_started/first_3d_game/03.player_movement_code.rst",
+      "tutorials/physics/using_character_body_2d.rst",
+      "tutorials/physics/kinematic_character_2d.rst"
+    ],
+    "passed": false,
+    "retrieved": true,
+    "keywords": false,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 4,
+    "kind": "normal",
+    "question": "How do I connect to a signal defined in GDScript from C#?",
+    "answer": "To connect to a signal defined in GDScript from C#, you must use the `Connect` method because no C# static types exist for signals defined by GDScript [1]. \n\nExamples of how to use the `Connect` method for this:\n\n```csharp\nmyGDScriptNode.Connect(\"my_signal\", Callable.From(MySignalHandler));\n\nmyGDScriptNode.Connect(\"my_signal_with_params\", Callable.From<string, int>(MySignalWithParamsHandler));\n```",
+    "sources": [
+      "tutorials/scripting/cross_language_scripting.rst",
+      "tutorials/scripting/cross_language_scripting.rst",
+      "tutorials/scripting/cross_language_scripting.rst",
+      "tutorials/scripting/c_sharp/c_sharp_differences.rst",
+      "getting_started/step_by_step/signals.rst"
+    ],
+    "passed": true,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 5,
+    "kind": "normal",
+    "question": "What does the green icon next to a function in the script editor mean?",
+    "answer": "Based on the provided documentation, I could not find information about a \"green icon\" next to a function in the script editor. The excerpts mention an *override* icon, a *receiver* method icon, a *foldable* block icon [1], and a green triangle arrow that indicates the line of code the debugger broke on [2], but they do not mention a green icon next to a function.",
+    "sources": [
+      "tutorials/editor/script_editor.rst",
+      "tutorials/scripting/debug/debugger_panel.rst",
+      "tutorials/shaders/shader_reference/canvas_item_shader.rst",
+      "tutorials/editor/script_editor.rst",
+      "tutorials/editor/script_editor.rst"
+    ],
+    "passed": false,
+    "retrieved": true,
+    "keywords": false,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 6,
+    "kind": "normal",
+    "question": "What stretch mode and aspect should I set so my 2D game scales on different screen sizes?",
+    "answer": "To make your game scale on different screen sizes, you should:\n\n- Set the stretch mode to `canvas_items` [1].\n- Set the stretch aspect to `expand` [1].",
+    "sources": [
+      "tutorials/rendering/multiple_resolutions.rst",
+      "tutorials/rendering/multiple_resolutions.rst",
+      "tutorials/rendering/multiple_resolutions.rst",
+      "tutorials/rendering/multiple_resolutions.rst",
+      "tutorials/rendering/multiple_resolutions.rst"
+    ],
+    "passed": false,
+    "retrieved": true,
+    "keywords": false,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 7,
+    "kind": "out_of_scope",
+    "question": "What is the capital of France?",
+    "answer": "I could not find the answer to this question in the docs.",
+    "sources": [
+      "tutorials/i18n/locales.rst",
+      "tutorials/i18n/locales.rst",
+      "tutorials/i18n/locales.rst",
+      "tutorials/i18n/locales.rst",
+      "tutorials/i18n/locales.rst"
+    ],
+    "passed": true
+  },
+  {
+    "id": 8,
+    "kind": "normal",
+    "question": "How does Godot store the default pose of a skeleton's bones?",
+    "answer": "Godot stores the Transform values necessary for the default pose as Bone Rest [1].",
+    "sources": [
+      "tutorials/assets_pipeline/retargeting_3d_skeletons.rst",
+      "tutorials/assets_pipeline/retargeting_3d_skeletons.rst",
+      "tutorials/animation/2d_skeletons.rst",
+      "tutorials/assets_pipeline/retargeting_3d_skeletons.rst",
+      "tutorials/assets_pipeline/retargeting_3d_skeletons.rst"
+    ],
+    "passed": true,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 9,
+    "kind": "normal",
+    "question": "Which gettext file formats can Godot load for translations?",
+    "answer": "Godot supports loading translation files written in the GNU gettext format, specifically text-based ``.po`` files and compiled ``.mo`` files [2].",
+    "sources": [
+      "tutorials/assets_pipeline/importing_translations.rst",
+      "tutorials/i18n/localization_using_gettext.rst",
+      "tutorials/i18n/localization_using_gettext.rst",
+      "tutorials/i18n/localization_using_gettext.rst",
+      "tutorials/io/runtime_file_loading_and_saving.rst"
+    ],
+    "passed": true,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 10,
+    "kind": "normal",
+    "question": "If my game crashes while it is embedded in the editor, will the editor crash too?",
+    "answer": "No, if the game crashes, it will not crash the editor because the game always runs in a separate process [1].",
+    "sources": [
+      "tutorials/editor/game_embedding.rst",
+      "tutorials/editor/command_line_tutorial.rst",
+      "tutorials/editor/project_manager.rst",
+      "tutorials/plugins/running_code_in_the_editor.rst",
+      "tutorials/scripting/c_sharp/c_sharp_basics.rst"
+    ],
+    "passed": true,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 11,
+    "kind": "normal",
+    "question": "Which audio effects are described as the essential ones for beginners?",
+    "answer": "Based on the provided documentation, the essential audio effects for beginners are:\n\n- Equalizer & Filter [2]\n- Limiter [2]\n- Delay & Reverb [2]",
+    "sources": [
+      "tutorials/audio/audio_effects.rst",
+      "tutorials/audio/audio_effects.rst",
+      "tutorials/audio/audio_effects.rst",
+      "tutorials/audio/recording_with_microphone.rst",
+      "tutorials/audio/audio_buses.rst"
+    ],
+    "passed": true,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 12,
+    "kind": "normal",
+    "question": "Where can I look up known issues with the physics engine?",
+    "answer": "You can look up known physics-related issues on GitHub [2].",
+    "sources": [
+      "tutorials/physics/troubleshooting_physics_issues.rst",
+      "tutorials/physics/troubleshooting_physics_issues.rst",
+      "tutorials/ui/creating_applications.rst",
+      "tutorials/physics/interpolation/using_physics_interpolation.rst",
+      "tutorials/migrating/upgrading_to_godot_4.6.rst"
+    ],
+    "passed": true,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 13,
+    "kind": "normal",
+    "question": "What happens to a navigation region that has no compatible navigation layer for a path query?",
+    "answer": "If a region does not have a single compatible navigation layer with the `navigation_layers` parameter of a path query, its navigation mesh will be skipped in pathfinding [1].",
+    "sources": [
+      "tutorials/navigation/navigation_using_navigationlayers.rst",
+      "tutorials/navigation/navigation_different_actor_area_access.rst",
+      "tutorials/navigation/navigation_using_navigationpathqueryobjects.rst",
+      "tutorials/navigation/navigation_using_navigationlayers.rst",
+      "tutorials/navigation/navigation_introduction_3d.rst"
+    ],
+    "passed": true,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 14,
+    "kind": "normal",
+    "question": "Does a navigation mesh take an agent's radius into account when pathfinding?",
+    "answer": "No, a navigation mesh only describes a traversable area for an agent's center position, and any radius values an agent may have are ignored [1]. If you want pathfinding to account for an agent's size, you need to shrink the navigation mesh accordingly [1].",
+    "sources": [
+      "tutorials/navigation/navigation_using_navigationmeshes.rst",
+      "tutorials/navigation/navigation_introduction_2d.rst",
+      "tutorials/navigation/navigation_introduction_3d.rst",
+      "tutorials/navigation/navigation_using_navigationagents.rst",
+      "tutorials/navigation/navigation_using_navigationagents.rst"
+    ],
+    "passed": true,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 15,
+    "kind": "normal",
+    "question": "What kind of gameplay is the AStar3D class best suited for?",
+    "answer": "The AStar3D class is best suited for cell-based 3D gameplay that does not require actors to reach any possible position within an area, but only predefined, distinct positions [1].",
+    "sources": [
+      "tutorials/navigation/navigation_introduction_3d.rst",
+      "getting_started/first_3d_game/index.rst",
+      "tutorials/navigation/navigation_introduction_2d.rst",
+      "getting_started/first_2d_game/index.rst",
+      "tutorials/navigation/navigation_introduction_3d.rst"
+    ],
+    "passed": true,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 16,
+    "kind": "normal",
+    "question": "What is godot-cpp?",
+    "answer": "Based on the provided documentation, godot-cpp provides an API designed to be as similar as possible to Godot's internal API [2], as well as an extension instance version of Godot's `Object` that is allocated separately from the original `Object` [4].",
+    "sources": [
+      "tutorials/scripting/cpp/gdextension_cpp_example.rst",
+      "tutorials/scripting/cpp/core_types.rst",
+      "tutorials/scripting/cpp/core_types.rst",
+      "tutorials/scripting/cpp/core_types.rst",
+      "tutorials/scripting/cpp/about_godot_cpp.rst"
+    ],
+    "passed": false,
+    "retrieved": true,
+    "keywords": false,
+    "cites_expected": false,
+    "valid_numbers": true
+  },
+  {
+    "id": 17,
+    "kind": "normal",
+    "question": "What makes each particle in a 2D particle system look different from the others?",
+    "answer": "What makes each particle different from the rest and provides a more organic look is the \"randomness\" associated with each parameter [2].",
+    "sources": [
+      "tutorials/2d/particle_systems_2d.rst",
+      "tutorials/2d/particle_systems_2d.rst",
+      "tutorials/2d/particle_systems_2d.rst",
+      "tutorials/3d/particles/index.rst",
+      "tutorials/3d/particles/index.rst"
+    ],
+    "passed": true,
+    "retrieved": true,
+    "keywords": true,
+    "cites_expected": true,
+    "valid_numbers": true
+  },
+  {
+    "id": 18,
+    "kind": "out_of_scope",
+    "question": "Who won the Game of the Year award in 2020?",
+    "answer": "I could not find the answer to your question in the docs.",
+    "sources": [
+      "getting_started/first_3d_game/08.score_and_replay.rst",
+      "getting_started/first_2d_game/05.the_main_game_scene.rst",
+      "getting_started/first_3d_game/08.score_and_replay.rst",
+      "getting_started/first_3d_game/08.score_and_replay.rst",
+      "getting_started/introduction/introduction_to_godot.rst"
+    ],
+    "passed": true
+  }
+]
