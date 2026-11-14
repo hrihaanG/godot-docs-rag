@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "question": "How do I connect a signal in GDScript?",
+    "expected_sources": [
+      "getting_started/step_by_step/signals.rst",
+      "getting_started/first_2d_game/06.heads_up_display.rst",
+      "getting_started/first_2d_game/03.coding_the_player.rst"
+    ],
+    "keywords": ["connect"],
+    "kind": "normal"
+  },
+  {
+    "id": 2,
+    "question": "What is the difference between _process and _physics_process?",
+    "expected_sources": [
+      "tutorials/scripting/idle_and_physics_processing.rst",
+      "tutorials/best_practices/godot_notifications.rst"
+    ],
+    "keywords": ["physics"],
+    "kind": "normal"
+  },
+  {
+    "id": 3,
+    "question": "How do I make a character jump in 2D?",
+    "expected_sources": ["tutorials/physics/using_character_body_2d.rst"],
+    "keywords": ["move_and_slide"],
+    "kind": "normal"
+  },
+  {
+    "id": 4,
+    "question": "How do I connect to a signal defined in GDScript from C#?",
+    "expected_sources": ["tutorials/scripting/cross_language_scripting.rst"],
+    "keywords": ["Connect"],
+    "kind": "normal"
+  },
+  {
+    "id": 5,
+    "question": "What does the green icon next to a function in the script editor mean?",
+    "expected_sources": ["getting_started/first_2d_game/03.coding_the_player.rst"],
+    "keywords": ["signal"],
+    "kind": "normal"
+  },
+  {
+    "id": 6,
+    "question": "What stretch mode and aspect should I set so my 2D game scales on different screen sizes?",
+    "expected_sources": ["getting_started/first_2d_game/01.project_setup.rst"],
+    "keywords": ["canvas_items"],
+    "kind": "normal"
+  },
+  {
+    "id": 7,
+    "question": "What is the capital of France?",
+    "expected_sources": [],
+    "keywords": [],
+    "kind": "out_of_scope"
+  }
+]
