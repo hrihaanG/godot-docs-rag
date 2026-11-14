@@ -1,0 +1,194 @@
+[
+  {
+    "id": 1,
+    "question": "How do I connect a signal in GDScript?",
+    "rank": 1,
+    "top5": [
+      "getting_started/first_2d_game/06.heads_up_display.rst",
+      "getting_started/first_2d_game/03.coding_the_player.rst",
+      "getting_started/step_by_step/signals.rst",
+      "tutorials/best_practices/scene_organization.rst",
+      "tutorials/scripting/cross_language_scripting.rst"
+    ]
+  },
+  {
+    "id": 2,
+    "question": "What is the difference between _process and _physics_process?",
+    "rank": 1,
+    "top5": [
+      "tutorials/scripting/idle_and_physics_processing.rst",
+      "getting_started/first_3d_game/03.player_movement_code.rst",
+      "tutorials/best_practices/godot_notifications.rst",
+      "tutorials/scripting/idle_and_physics_processing.rst",
+      "tutorials/scripting/idle_and_physics_processing.rst"
+    ]
+  },
+  {
+    "id": 3,
+    "question": "How do I make a character jump in 2D?",
+    "rank": 4,
+    "top5": [
+      "getting_started/first_3d_game/06.jump_and_squash.rst",
+      "tutorials/3d/using_transforms.rst",
+      "getting_started/first_3d_game/03.player_movement_code.rst",
+      "tutorials/physics/using_character_body_2d.rst",
+      "tutorials/physics/kinematic_character_2d.rst"
+    ]
+  },
+  {
+    "id": 4,
+    "question": "How do I connect to a signal defined in GDScript from C#?",
+    "rank": 1,
+    "top5": [
+      "tutorials/scripting/cross_language_scripting.rst",
+      "tutorials/scripting/cross_language_scripting.rst",
+      "tutorials/scripting/cross_language_scripting.rst",
+      "tutorials/scripting/c_sharp/c_sharp_differences.rst",
+      "getting_started/step_by_step/signals.rst"
+    ]
+  },
+  {
+    "id": 5,
+    "question": "What does the green icon next to a function in the script editor mean?",
+    "rank": null,
+    "top5": [
+      "tutorials/editor/script_editor.rst",
+      "tutorials/scripting/debug/debugger_panel.rst",
+      "tutorials/shaders/shader_reference/canvas_item_shader.rst",
+      "tutorials/editor/script_editor.rst",
+      "tutorials/editor/script_editor.rst"
+    ]
+  },
+  {
+    "id": 6,
+    "question": "What stretch mode and aspect should I set so my 2D game scales on different screen sizes?",
+    "rank": null,
+    "top5": [
+      "tutorials/rendering/multiple_resolutions.rst",
+      "tutorials/rendering/multiple_resolutions.rst",
+      "tutorials/rendering/multiple_resolutions.rst",
+      "tutorials/rendering/multiple_resolutions.rst",
+      "tutorials/rendering/multiple_resolutions.rst"
+    ]
+  },
+  {
+    "id": 8,
+    "question": "How does Godot store the default pose of a skeleton's bones?",
+    "rank": 1,
+    "top5": [
+      "tutorials/assets_pipeline/retargeting_3d_skeletons.rst",
+      "tutorials/assets_pipeline/retargeting_3d_skeletons.rst",
+      "tutorials/animation/2d_skeletons.rst",
+      "tutorials/assets_pipeline/retargeting_3d_skeletons.rst",
+      "tutorials/assets_pipeline/retargeting_3d_skeletons.rst"
+    ]
+  },
+  {
+    "id": 9,
+    "question": "Which gettext file formats can Godot load for translations?",
+    "rank": 2,
+    "top5": [
+      "tutorials/assets_pipeline/importing_translations.rst",
+      "tutorials/i18n/localization_using_gettext.rst",
+      "tutorials/i18n/localization_using_gettext.rst",
+      "tutorials/i18n/localization_using_gettext.rst",
+      "tutorials/io/runtime_file_loading_and_saving.rst"
+    ]
+  },
+  {
+    "id": 10,
+    "question": "If my game crashes while it is embedded in the editor, will the editor crash too?",
+    "rank": 1,
+    "top5": [
+      "tutorials/editor/game_embedding.rst",
+      "tutorials/editor/command_line_tutorial.rst",
+      "tutorials/editor/project_manager.rst",
+      "tutorials/plugins/running_code_in_the_editor.rst",
+      "tutorials/scripting/c_sharp/c_sharp_basics.rst"
+    ]
+  },
+  {
+    "id": 11,
+    "question": "Which audio effects are described as the essential ones for beginners?",
+    "rank": 1,
+    "top5": [
+      "tutorials/audio/audio_effects.rst",
+      "tutorials/audio/audio_effects.rst",
+      "tutorials/audio/audio_effects.rst",
+      "tutorials/audio/recording_with_microphone.rst",
+      "tutorials/audio/audio_buses.rst"
+    ]
+  },
+  {
+    "id": 12,
+    "question": "Where can I look up known issues with the physics engine?",
+    "rank": 1,
+    "top5": [
+      "tutorials/physics/troubleshooting_physics_issues.rst",
+      "tutorials/physics/troubleshooting_physics_issues.rst",
+      "tutorials/ui/creating_applications.rst",
+      "tutorials/physics/interpolation/using_physics_interpolation.rst",
+      "tutorials/migrating/upgrading_to_godot_4.6.rst"
+    ]
+  },
+  {
+    "id": 13,
+    "question": "What happens to a navigation region that has no compatible navigation layer for a path query?",
+    "rank": 1,
+    "top5": [
+      "tutorials/navigation/navigation_using_navigationlayers.rst",
+      "tutorials/navigation/navigation_different_actor_area_access.rst",
+      "tutorials/navigation/navigation_using_navigationpathqueryobjects.rst",
+      "tutorials/navigation/navigation_using_navigationlayers.rst",
+      "tutorials/navigation/navigation_introduction_3d.rst"
+    ]
+  },
+  {
+    "id": 14,
+    "question": "Does a navigation mesh take an agent's radius into account when pathfinding?",
+    "rank": 1,
+    "top5": [
+      "tutorials/navigation/navigation_using_navigationmeshes.rst",
+      "tutorials/navigation/navigation_introduction_2d.rst",
+      "tutorials/navigation/navigation_introduction_3d.rst",
+      "tutorials/navigation/navigation_using_navigationagents.rst",
+      "tutorials/navigation/navigation_using_navigationagents.rst"
+    ]
+  },
+  {
+    "id": 15,
+    "question": "What kind of gameplay is the AStar3D class best suited for?",
+    "rank": 1,
+    "top5": [
+      "tutorials/navigation/navigation_introduction_3d.rst",
+      "getting_started/first_3d_game/index.rst",
+      "tutorials/navigation/navigation_introduction_2d.rst",
+      "getting_started/first_2d_game/index.rst",
+      "tutorials/navigation/navigation_introduction_3d.rst"
+    ]
+  },
+  {
+    "id": 16,
+    "question": "What is godot-cpp?",
+    "rank": 5,
+    "top5": [
+      "tutorials/scripting/cpp/gdextension_cpp_example.rst",
+      "tutorials/scripting/cpp/core_types.rst",
+      "tutorials/scripting/cpp/core_types.rst",
+      "tutorials/scripting/cpp/core_types.rst",
+      "tutorials/scripting/cpp/about_godot_cpp.rst"
+    ]
+  },
+  {
+    "id": 17,
+    "question": "What makes each particle in a 2D particle system look different from the others?",
+    "rank": 1,
+    "top5": [
+      "tutorials/2d/particle_systems_2d.rst",
+      "tutorials/2d/particle_systems_2d.rst",
+      "tutorials/2d/particle_systems_2d.rst",
+      "tutorials/3d/particles/index.rst",
+      "tutorials/3d/particles/index.rst"
+    ]
+  }
+]
