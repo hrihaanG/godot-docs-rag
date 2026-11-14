@@ -5,8 +5,12 @@ import time
 
 from answer import answer
 
+USE_AGENT = "--agent" in sys.argv
+if USE_AGENT:
+    from agent import run
+
 questions = json.load(open("eval_questions.json", encoding="utf-8"))
-only = {int(a) for a in sys.argv[1:]}
+only = {int(a) for a in sys.argv[1:] if a != "--agent"}
 if only:
     questions = [q for q in questions if q["id"] in only]
 REFUSALS = ("could not find", "couldn't find", "cannot find", "can't find")
@@ -15,11 +19,15 @@ REFUSALS = ("could not find", "couldn't find", "cannot find", "can't find")
 def ask(question):
     for _ in range(3):
         try:
-            return answer(question)
+            if USE_AGENT:
+                result = run(question)
+                return result["answer"], result.get("hits", []), result["route"]
+            text, hits = answer(question)
+            return text, hits, "search"
         except Exception as e:
             print(f"   {type(e).__name__}: {str(e)[:200]} - waiting 30s")
             time.sleep(30)
-    return None, []
+    return None, [], None
 
 
 def cited_numbers(text):
@@ -31,8 +39,8 @@ def cited_numbers(text):
 
 results = []
 for q in questions:
-    text, hits = ask(q["question"])
-    r = {"id": q["id"], "kind": q["kind"], "question": q["question"],
+    text, hits, route = ask(q["question"])
+    r = {"id": q["id"], "kind": q["kind"], "question": q["question"], "route": route,
          "answer": text, "sources": [h["source"] for h in hits], "passed": False}
     if text is not None:
         low = text.lower()
@@ -51,8 +59,8 @@ for q in questions:
             r["passed"] = (not refused and r["keywords"]
                            and r["cites_expected"] and r["valid_numbers"])
     results.append(r)
-    print(f"#{q['id']:>2}  {'PASS' if r['passed'] else 'FAIL'}")
-    time.sleep(6)
+    print(f"#{q['id']:>2}  {'PASS' if r['passed'] else 'FAIL'}  route={route}")
+    time.sleep(10 if USE_AGENT else 6)
 
 normal = [r for r in results if r["kind"] == "normal"]
 oos = [r for r in results if r["kind"] == "out_of_scope"]
@@ -68,5 +76,6 @@ for r in [r for r in normal if not r["passed"]]:
           "| cites expected:", r.get("cites_expected"))
     print("   answer:", (r["answer"] or "NO ANSWER")[:300].replace("\n", " "))
 
-out = "eval_answer_results_partial.json" if only else "eval_answer_results.json"
+suffix = "_agent" if USE_AGENT else ""
+out = f"eval_answer_results{suffix}_partial.json" if only else f"eval_answer_results{suffix}.json"
 json.dump(results, open(out, "w", encoding="utf-8"), indent=2)
