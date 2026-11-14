@@ -49,6 +49,14 @@ Evaluated 14 Nov 2026. This document reports what the Godot Docs Assistant gets 
 - **Code tabs:** chunks can contain both GDScript and C# versions of the same code, and answers can blend the two languages.
 - **Citations:** a citation can be correct while the answer still mislabels a detail.
 
+## Routing graph (LangGraph)
+
+`agent.py` wraps the pipeline in a small workflow. A router labels each question as direct (greeting), clarify (too vague) or search. Searches go through retrieval, then a distance check: if the closest chunk is farther than 1.05, the app refuses without calling the model. Otherwise the model answers, and if it gives a short "could not find" reply, the source list is dropped. This is a routed workflow with fixed steps, not an autonomous agent.
+
+Run on the same 18 questions (single run, `gemini-3.5-flash-lite`): 12 / 16 answerable passed and 2 / 2 out-of-scope were refused, the same as the plain pipeline, with the same four failures. All 16 answerable questions were routed to search, and none was refused by the distance check.
+
+Limits of the distance check: the cutoff of 1.05 was chosen from 10 questions (5 on-topic, 5 off-topic). It separates unrelated questions (France 1.163, Unity 1.099) from Godot questions, but not questions about other game engines: an Unreal Engine question scored 0.900, inside the range of hard Godot questions (0.91 to 0.97). For those, the prompt rule is the only protection, and it was checked on a single run.
+
 ## How much to trust these numbers
 
 - There are only 16 answerable questions, so one question moves a percentage by about 6 points.
