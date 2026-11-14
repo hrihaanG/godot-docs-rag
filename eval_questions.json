@@ -54,5 +54,82 @@
     "expected_sources": [],
     "keywords": [],
     "kind": "out_of_scope"
+  },
+  {
+    "id": 8,
+    "question": "How does Godot store the default pose of a skeleton's bones?",
+    "expected_sources": ["tutorials/assets_pipeline/retargeting_3d_skeletons.rst"],
+    "keywords": ["bone rest"],
+    "kind": "normal"
+  },
+  {
+    "id": 9,
+    "question": "Which gettext file formats can Godot load for translations?",
+    "expected_sources": ["tutorials/i18n/localization_using_gettext.rst"],
+    "keywords": [".po", ".mo"],
+    "kind": "normal"
+  },
+  {
+    "id": 10,
+    "question": "If my game crashes while it is embedded in the editor, will the editor crash too?",
+    "expected_sources": ["tutorials/editor/game_embedding.rst"],
+    "keywords": ["separate process"],
+    "kind": "normal"
+  },
+  {
+    "id": 11,
+    "question": "Which audio effects are described as the essential ones for beginners?",
+    "expected_sources": ["tutorials/audio/audio_effects.rst"],
+    "keywords": ["limiter", "reverb"],
+    "kind": "normal"
+  },
+  {
+    "id": 12,
+    "question": "Where can I look up known issues with the physics engine?",
+    "expected_sources": ["tutorials/physics/troubleshooting_physics_issues.rst"],
+    "keywords": ["github"],
+    "kind": "normal"
+  },
+  {
+    "id": 13,
+    "question": "What happens to a navigation region that has no compatible navigation layer for a path query?",
+    "expected_sources": ["tutorials/navigation/navigation_using_navigationlayers.rst"],
+    "keywords": ["skipped"],
+    "kind": "normal"
+  },
+  {
+    "id": 14,
+    "question": "Does a navigation mesh take an agent's radius into account when pathfinding?",
+    "expected_sources": ["tutorials/navigation/navigation_using_navigationmeshes.rst"],
+    "keywords": ["ignored"],
+    "kind": "normal"
+  },
+  {
+    "id": 15,
+    "question": "What kind of gameplay is the AStar3D class best suited for?",
+    "expected_sources": ["tutorials/navigation/navigation_introduction_3d.rst"],
+    "keywords": ["cell-based"],
+    "kind": "normal"
+  },
+  {
+    "id": 16,
+    "question": "What is godot-cpp?",
+    "expected_sources": ["tutorials/scripting/cpp/about_godot_cpp.rst"],
+    "keywords": ["c++", "gdextension"],
+    "kind": "normal"
+  },
+  {
+    "id": 17,
+    "question": "What makes each particle in a 2D particle system look different from the others?",
+    "expected_sources": ["tutorials/2d/particle_systems_2d.rst"],
+    "keywords": ["random"],
+    "kind": "normal"
+  },
+  {
+    "id": 18,
+    "question": "Who won the Game of the Year award in 2020?",
+    "expected_sources": [],
+    "keywords": [],
+    "kind": "out_of_scope"
   }
 ]
