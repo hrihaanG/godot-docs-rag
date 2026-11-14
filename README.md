@@ -10,6 +10,12 @@ See [EVALUATION.md](EVALUATION.md) for retrieval and answer results, failure cas
 
 ## Attribution
 
-The Godot documentation is by Juan Linietsky, Ariel Manzur and the Godot community, licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). It is not included in this repository; get it from [godotengine/godot-docs](https://github.com/godotengine/godot-docs). This project splits the text into chunks and quotes excerpts in answers and evaluation files, so those are adapted material. Only the `getting_started` and `tutorials` folders are used.
+## Attribution
+
+This project uses the *Godot Engine documentation* by Juan Linietsky, Ariel Manzur and the Godot community, available at [godotengine/godot-docs](https://github.com/godotengine/godot-docs) and licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). The documentation itself is not included in this repository.
+
+**Changes made:** the original text has been modified. It is split into chunks, and excerpts are quoted in answers and in the evaluation files. Only the `getting_started` and `tutorials` folders are used.
+
+This project is not affiliated with or endorsed by the Godot Engine project or the original authors.
 
 Setup and run instructions will be added once the API and Docker image are done.
