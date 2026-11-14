@@ -11,8 +11,7 @@ client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 MODEL = "gemini-3.5-flash-lite"
 
 
-def answer(question, k=5):
-    hits = search(question, k)
+def generate(question, hits):
     context = "\n\n".join(
         f"[{i}] (source: {h['source']})\n{h['text']}"
         for i, h in enumerate(hits, 1)
@@ -26,7 +25,12 @@ def answer(question, k=5):
         f"Excerpts:\n{context}\n\nQuestion: {question}"
     )
     response = client.models.generate_content(model=MODEL, contents=prompt)
-    return response.text, hits
+    return response.text
+
+
+def answer(question, k=5):
+    hits = search(question, k)
+    return generate(question, hits), hits
 
 
 if __name__ == "__main__":
